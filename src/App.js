@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+
 import './App.css';
+import './bootstrap.css'
+import Layout from './component/Layout';
+import { Routes as Switch, Route}  from 'react-router-dom';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Home from './pages/Home';
+import { AuthContextProvider } from "./context/AuthContext";
+import AddProduct from './pages/AddProduct';
+import EditProduct from './pages/EditProduct';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AuthContextProvider>
+        <Layout>
+          <Switch>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/products" element={<AddProduct />} />
+            <Route path="/editproduct/:id" element={<EditProduct />} />
+          </Switch>
+        </Layout>
+      </AuthContextProvider>
+    </>
   );
 }
 
