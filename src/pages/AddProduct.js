@@ -108,7 +108,7 @@ const AddProduct = () => {
           />
         </div>
         <button type="submit" className="btn btn-info my-3">
-          Add Contact
+          Add Product
         </button>
       </form>
     </>
